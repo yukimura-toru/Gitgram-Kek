@@ -62,15 +62,8 @@ def source(_bot, update):
     """Link to Source"""
     message = update.effective_message
     message.reply_text(
-        f"*Source*:\n\n[GitGram Repo](https://waa.ai/GitGram).",
+        f"*Source*:\n\nThis instance: {GIT_REPO_URL}\nOriginal: https://github.com/pokurt/GitGram",
         parse_mode="markdown"
-    )
-
-def getSourceCodeLink(_bot, update):
-    """Pulls link to the source code."""
-    message = update.effective_message
-    message.reply_text(
-        f"{GIT_REPO_URL}"
     )
 
 start_handler = CommandHandler("start", start)
