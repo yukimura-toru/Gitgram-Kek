@@ -1,0 +1,18 @@
+on: [ push ]
+
+jobs:
+  to_git-gram_org:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: spyoungtech/mirror-action@master
+        with:
+          ## Repo of the self-hosted GitGram on GitHub
+          ## Either the vanila one (https://github.com/Git-Gram/GitGram-Vanila)
+          ## Or with customizations (https://github.com/Git-Gram/GitGram-With-Extras)
+          REMOTE: ${{ secrets.GH_GITGRAM_ORG_REPO }}
+          ## We're using the Pins team's service account.
+          ## If you want to use this account, ask Andrei Jiroh for access token.
+          GIT_USERNAME: RecapTimeBot
+          GIT_PASSWORD: ${{ secrets.GH_SERVICE_ACCOUNT_API_KEY }}
+          DEBUG: "true"
