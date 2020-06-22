@@ -4,5 +4,8 @@ BOT_TOKEN = ""
 # Project Name of your Project
 PROJECT_NAME = ""
 
-# If you forked the source code, grab your repo's link and paste it below!
-GIT_REPO_URL = "https://github.com/MadeByThePinsHub/GitGram"
+# If you forked the source code, grab your repo's link and replace ours with yours below!
+GIT_REPO_URL = "https://github.com/pokurt/GitGram"
+
+# Support Chat
+GITGRAM_SUPPORT = "https://t.me/GitGramChat"

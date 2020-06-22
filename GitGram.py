@@ -7,6 +7,15 @@ from requests import get, post
 from os import environ
 import config
 
+## For handling Ctrl+C
+import signal
+import sys
+
+def signal_handler(signal, frame):
+  sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+
 from telegram.ext import CommandHandler, Updater
 
 
@@ -22,17 +31,19 @@ if ENV:
     PROJECT_NAME = environ.get('PROJECT_NAME', None)
     ip_addr = environ.get('APP_URL', None)
     # You kanged our project without forking it, we'll get you DMCA'd.
-    GIT_REPO_URL = environ.get('GIT_REPO_URL', "https://github.com/MadeByThePinsHub/GitGram")
+    GIT_REPO_URL = environ.get('GIT_REPO_URL', "https://github.com/GitGram/vanila")
+    GITGRAM_SUPPORT = environ.get('GITGRAM_SUPPORT', "https://t.me/GitGramChat")
 else:
     BOT_TOKEN = config.BOT_TOKEN
     PROJECT_NAME = config.PROJECT_NAME
     ip_addr = get('https://api.ipify.org').text
     GIT_REPO_URL = config.GIT_REPO_URL
+    GITGRAM_SUPPORT = config.GITGRAM_SUPPORT
 
 updater = Updater(token=BOT_TOKEN, workers=1)
 dispatcher = updater.dispatcher
 
-print("If you need more help, join @GitGramChat in Telegram.")
+print("If you need more help, join @GitGramChat in Telegram for assistance.")
 
 
 def start(_bot, update):
@@ -54,7 +65,7 @@ def support(_bot, update):
     """Links to Support"""
     message = update.effective_message
     message.reply_text(
-        f"*Getting Support*\n\nTo get support in using the bot, join [the GitGram support](https://t.me/GitGramChat).",
+        f"*Getting Support*\n\nTo get support in using the bot, join [the GitGram support]({GITGRAM_SUPPORT}).",
         parse_mode="markdown"
     )
 
@@ -62,7 +73,7 @@ def source(_bot, update):
     """Link to Source"""
     message = update.effective_message
     message.reply_text(
-        f"*Source*:\n\nThis instance: {GIT_REPO_URL}\nOriginal: https://github.com/pokurt/GitGram",
+        f"*Source*:\n\nThis instance: {GIT_REPO_URL}",
         parse_mode="markdown"
     )
 
