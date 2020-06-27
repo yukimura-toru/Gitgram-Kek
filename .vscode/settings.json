@@ -1,0 +1,6 @@
+{
+    "git.alwaysSignOff": true,
+    "git.autofetch": true,
+    "git.confirmEmptyCommits": true,
+    "git.showProgress": true
+}
