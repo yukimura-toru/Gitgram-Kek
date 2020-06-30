@@ -330,12 +330,12 @@ def deldog(data):
     return reply
 
 # GitHub-specific webhooks stuff
-@server.route("/gh/<groupid>", methods=['GET', 'POST'])
-def git_api(groupid):
+@server.route("/gh/<chatid>", methods=['GET', 'POST'])
+def github_webhooks(chatid):
     """Requests to api.github.com"""
     data = request.json
     if not data:
-        return f"<b>Add this url:</b> {ip_addr}/{groupid} to webhooks of the project"
+        return f"<b>Add this url:</b> {ip_addr}/{chatid} to webhooks of the project"
 
     if data.get('hook'):
         repo_url = data['repository']['html_url']
@@ -514,7 +514,7 @@ def git_api(groupid):
     return response
 
 
-def deldog(data):
+def passUnknownJsonToDeldog(data):
     """Pasing the stings to del.dog"""
     BASE_URL = 'https://del.dog'
     r = post(f'{BASE_URL}/documents', data=str(data).encode('utf-8'))
