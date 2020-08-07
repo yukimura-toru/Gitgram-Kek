@@ -100,20 +100,19 @@ else:
 
 
 def post_tg(chat, message, parse_mode):
-    """Send message to desired group"""
-    response = post(
+  """Send message to desired group"""
+  return post(
         TG_BOT_API + "sendMessage",
         params={
             "chat_id": chat,
             "text": message,
             "parse_mode": parse_mode,
             "disable_web_page_preview": True}).json()
-    return response
 
 
 def reply_tg(chat, message_id, message, parse_mode):
-    """reply to message_id"""
-    response = post(
+  """reply to message_id"""
+  return post(
         TG_BOT_API + "sendMessage",
         params={
             "chat_id": chat,
@@ -121,7 +120,6 @@ def reply_tg(chat, message_id, message, parse_mode):
             "text": message,
             "parse_mode": parse_mode,
             "disable_web_page_preview": True}).json()
-    return response
 
 @server.route("/", methods=['GET'])
 # Just send 'Hello, world!' to tell that our server is up.
