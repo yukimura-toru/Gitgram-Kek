@@ -29,6 +29,7 @@ Bruh, want to be like [the Pins team](https://t.me/ThePinsTeam_GitGramBot)'s ins
 - Then on **Settings** tab, add `APP_URL`, `BOT_TOKEN`, `GITGRAM_SUPPORT`, `GIT_REPO_URL`, and `PROJECT_NAME` variables. To use them, set `ENV` to `True`.
 - Just one restart away to run your instance. To setup, open your bot's PMs or add it to your group and use `/connect` command.
 
+
 ## Try on Gitpod:
 1. [Login to Gitpod](https://gitpod.io/login).
 2. [Open this repo in Gitpod](https://gitpod.io/#github.com/pokurt/GitGram).
